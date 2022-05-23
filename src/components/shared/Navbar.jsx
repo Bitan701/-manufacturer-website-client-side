@@ -1,7 +1,11 @@
-import React from 'react'
+import { signOut } from 'firebase/auth'
+import { useAuthState } from 'react-firebase-hooks/auth'
+import auth from '../../firebase.init'
 import CustomLink from '../custom/CustomLink'
 
 const Navbar = () => {
+	const [user, loading, error] = useAuthState(auth)
+
 	return (
 		<div>
 			<div className='navbar bg-base-100'>
@@ -100,7 +104,11 @@ const Navbar = () => {
 					</ul>
 				</div>
 				<div className='navbar-end'>
-					<CustomLink to='/login'>Login</CustomLink>
+					{user ? (
+						<button onClick={() => signOut(auth)}>true</button>
+					) : (
+						<CustomLink to='/login'>Login</CustomLink>
+					)}
 				</div>
 			</div>
 		</div>

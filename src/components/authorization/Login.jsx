@@ -1,9 +1,35 @@
 import React from 'react'
+import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth'
 import { useForm } from 'react-hook-form'
+import { Link } from 'react-router-dom'
+import auth from '../../firebase.init'
+import Loading from '../shared/Loading'
 
 const Login = () => {
 	const { register, handleSubmit } = useForm()
-	const onSubmit = (data) => console.log(data)
+	const onSubmit = (data) => {
+		console.log(data)
+		signInWithEmailAndPassword(data.email, data.password)
+	}
+
+	const [signInWithEmailAndPassword, user, loading, error] =
+		useSignInWithEmailAndPassword(auth)
+
+	if (error) {
+		return (
+			<div>
+				<p>Error: {error.message}</p>
+			</div>
+		)
+	}
+
+	if (loading) {
+		return <Loading />
+	}
+
+	if (user) {
+		console.log(user.user.email)
+	}
 
 	return (
 		<div className='text-center'>
@@ -31,6 +57,8 @@ const Login = () => {
 					<input type='submit' />
 				</div>
 			</form>
+
+			<Link to='/register'>Register</Link>
 		</div>
 	)
 }
