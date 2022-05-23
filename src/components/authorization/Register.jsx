@@ -1,4 +1,7 @@
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth'
+import {
+	useCreateUserWithEmailAndPassword,
+	useSignInWithGoogle,
+} from 'react-firebase-hooks/auth'
 import React from 'react'
 import { useForm } from 'react-hook-form'
 import { Link } from 'react-router-dom'
@@ -11,12 +14,9 @@ const Register = () => {
 	const [createUserWithEmailAndPassword, user, loading, error] =
 		useCreateUserWithEmailAndPassword(auth)
 
-	const onSubmit = (data) => {
-		console.log(data)
-		createUserWithEmailAndPassword(data.email, data.password)
-	}
+	const [signInWithGoogle, gloading, gerror] = useSignInWithGoogle(auth)
 
-	if (error) {
+	if (error || gerror) {
 		return (
 			<div>
 				<p>Error: {error.message}</p>
@@ -24,7 +24,7 @@ const Register = () => {
 		)
 	}
 
-	if (loading) {
+	if (loading || gloading) {
 		return <Loading />
 	}
 
@@ -32,11 +32,19 @@ const Register = () => {
 		console.log(user.user.email)
 	}
 
+	const onSubmit = (data) => {
+		console.log(data)
+		createUserWithEmailAndPassword(data.email, data.password)
+	}
+
 	return (
-		<div className='text-center'>
+		<div className='flex justify-center items-center flex-col h-screen gap-8'>
 			<h1 className='text-3xl'>Register</h1>
+			<button onClick={() => signInWithGoogle()} className='btn btn-wide'>
+				sign up with google
+			</button>
 			<form onSubmit={handleSubmit(onSubmit)}>
-				<div className='form-control'>
+				<div className='form-control gap-3'>
 					<label className='input-group'>
 						<span className='w-32'>Email</span>
 						<input
@@ -59,7 +67,7 @@ const Register = () => {
 				</div>
 			</form>
 
-			<Link to='/register'>Register</Link>
+			<Link to='/login'>Login</Link>
 		</div>
 	)
 }
