@@ -1,0 +1,154 @@
+[
+	{
+		"name": "GeForce RTX™ 3090 Ti GAMING X TRIO 24G",
+		"image": "https://i.ibb.co/n325X4h/Ge-Force-RTX-3090-Ti-GAMING-X-TRIO-24-G.png",
+		"description": {
+			"gpu": "NVIDIA® GeForce RTX™ 3090 Ti",
+			"cuda": 10752,
+			"coreClock": 1920,
+			"memorySpeed": 21,
+			"memory": 24,
+			"memoryType": "GDDR6X",
+			"powerConsumption": 450
+		},
+		"minimumPurchaseQuantity": 200,
+		"availableQuantity": 1000,
+		"price": 1999
+	},
+
+	{
+		"name": "GeForce RTX™ 3090 SUPRIM X 24G",
+		"image": "https://i.ibb.co/b1Ht2WX/Ge-Force-RTX-3090-SUPRIM-X-24-G.png",
+		"description": {
+			"gpu": "NVIDIA® GeForce RTX™ 3090",
+			"cuda": 10496,
+			"coreClock": 1875,
+			"memorySpeed": 19.5,
+			"memory": 24,
+			"memoryType": "GDDR6X",
+			"powerConsumption": 420
+		},
+		"minimumPurchaseQuantity": 250,
+		"availableQuantity": 1200,
+		"price": 1699
+	},
+
+	{
+		"name": "GeForce RTX™ 3080 Ti SUPRIM X 12G",
+		"image": "https://i.ibb.co/pW8VzD2/Ge-Force-RTX-3080-Ti-SUPRIM-X-12-G.png",
+		"description": {
+			"gpu": "NVIDIA® GeForce RTX™ 3080 Ti",
+			"cuda": 10240,
+			"coreClock": 1830,
+			"memorySpeed": 19,
+			"memory": 12,
+			"memoryType": "GDDR6X",
+			"powerConsumption": 400
+		},
+		"minimumPurchaseQuantity": 300,
+		"availableQuantity": 1400,
+		"price": 1299
+	},
+
+	{
+		"name": "GeForce RTX™ 3080 SUPRIM 12G LHR",
+		"image": "https://i.ibb.co/wZqkvnx/Ge-Force-RTX-3080-SUPRIM-12-G-LHR.png",
+		"description": {
+			"gpu": "NVIDIA® GeForce RTX™ 3080",
+			"cuda": 8960,
+			"coreClock": 1830,
+			"memorySpeed": 19,
+			"memory": 12,
+			"memoryType": "GDDR6X",
+			"powerConsumption": 390
+		},
+		"minimumPurchaseQuantity": 350,
+		"availableQuantity": 1600,
+		"price": 999
+	},
+
+	{
+		"name": "GeForce RTX™ 3070 Ti SUPRIM X 8G",
+		"image": "https://i.ibb.co/hB4XNp1/Ge-Force-RTX-3070-Ti-SUPRIM-X-8-G.png",
+		"description": {
+			"gpu": "NVIDIA® GeForce RTX™ 3070 Ti",
+			"cuda": 6144,
+			"coreClock": 1875,
+			"memorySpeed": 19,
+			"memory": 8,
+			"memoryType": "GDDR6X",
+			"powerConsumption": 310
+		},
+		"minimumPurchaseQuantity": 400,
+		"availableQuantity": 1800,
+		"price": 799
+	},
+
+	{
+		"name": "GeForce RTX™ 3070 GAMING TRIO PLUS 8G LHR",
+		"image": "https://i.ibb.co/MRMNprq/Ge-Force-RTX-3070-GAMING-TRIO-PLUS-8-G-LHR.png",
+		"description": {
+			"gpu": "NVIDIA® GeForce RTX™ 3070",
+			"cuda": 5888,
+			"coreClock": 1770,
+			"memorySpeed": 14,
+			"memory": 8,
+			"memoryType": "GDDR6",
+			"powerConsumption": 240
+		},
+		"minimumPurchaseQuantity": 450,
+		"availableQuantity": 2000,
+		"price": 699
+	},
+
+	{
+		"name": "GeForce RTX™ 3060 Ti GAMING 8G LHR",
+		"image": "https://i.ibb.co/Dg7y92h/Ge-Force-RTX-3060-Ti-GAMING-8-G-LHR.png",
+		"description": {
+			"gpu": "NVIDIA® GeForce RTX™ 3060 Ti",
+			"cuda": 4864,
+			"coreClock": 1710,
+			"memorySpeed": 14,
+			"memory": 8,
+			"memoryType": "GDDR6",
+			"powerConsumption": 220
+		},
+		"minimumPurchaseQuantity": 500,
+		"availableQuantity": 2200,
+		"price": 599
+	},
+
+	{
+		"name": "GeForce RTX™ 3060 GAMING Z TRIO 12G",
+		"image": "https://i.ibb.co/2hLrXDL/Ge-Force-RTX-3060-GAMING-Z-TRIO-12-G.png",
+		"description": {
+			"gpu": "NVIDIA® GeForce RTX™ 3060",
+			"cuda": 3584,
+			"coreClock": 1867,
+			"memorySpeed": 15,
+			"memory": 12,
+			"memoryType": "GDDR6",
+			"powerConsumption": 170
+		},
+		"minimumPurchaseQuantity": 550,
+		"availableQuantity": 2400,
+		"price": 499
+	},
+
+	{
+		"name": "GeForce RTX™ 3050 GAMING X 8G",
+		"image": "https://i.ibb.co/gJcqdVK/Ge-Force-RTX-3050-GAMING-X-8-G.png",
+		"description": {
+			"gpu": "NVIDIA® GeForce RTX™ 3050",
+			"cuda": 2560,
+			"coreClock": 1845,
+			"memorySpeed": 14,
+			"memory": 8,
+			"memoryType": "GDDR6",
+			"powerConsumption": 130
+		},
+		"minimumPurchaseQuantity": 200,
+		"availableQuantity": 1000,
+		"price": 399
+	}
+]
