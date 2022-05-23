@@ -100,7 +100,7 @@ const Navbar = () => {
 					</ul>
 				</div>
 				<div className='navbar-end'>
-					<a className='btn'>Get started</a>
+					<CustomLink to='/login'>Login</CustomLink>
 				</div>
 			</div>
 		</div>
