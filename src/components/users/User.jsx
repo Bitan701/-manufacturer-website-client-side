@@ -1,15 +1,30 @@
-import React, { useReducer } from 'react'
-
-const User = ({ user, refetch }) => {
+const User = ({ user, refetch, activeUser }) => {
+	// activeUser is the user logged in. First fetch determines if the activeUser is an admin. If true then activeUser can make other users admin as well
 	const makeAdmin = () => {
-		fetch(`http://localhost:5000/users/admin/${user.email}`, {
-			method: 'PUT',
-		})
+		fetch(`http://localhost:5000/users/${activeUser}`)
 			.then((res) => res.json())
 			.then((data) => {
-				console.log(data)
-				refetch()
+				if (data[0].role) {
+					fetch(`http://localhost:5000/users/admin/${user.email}`, {
+						method: 'PUT',
+					})
+						.then((res) => res.json())
+						.then((data) => {
+							refetch()
+						})
+				} else {
+					console.log('Unauthorized')
+				}
 			})
+
+		// fetch(`http://localhost:5000/users/admin/${user.email}`, {
+		// 	method: 'PUT',
+		// })
+		// 	.then((res) => res.json())
+		// 	.then((data) => {
+		// 		console.log(data)
+		// 		refetch()
+		// 	})
 	}
 
 	return (

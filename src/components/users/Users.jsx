@@ -1,6 +1,8 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
+import { useAuthState } from 'react-firebase-hooks/auth'
 import { useQuery } from 'react-query'
+import auth from '../../firebase.init'
 import Loading from '../shared/Loading'
 import User from './User'
 
@@ -13,6 +15,14 @@ const Users = () => {
 	// 		setUsers(response.data)
 	// 	})
 	// }, [])
+
+	const [user] = useAuthState(auth)
+
+	let activeUser
+
+	if (user) {
+		activeUser = user.email
+	}
 
 	const {
 		data: users,
@@ -41,7 +51,12 @@ const Users = () => {
 					</thead>
 					<tbody>
 						{users.map((user) => (
-							<User key={user._id} user={user} refetch={refetch} />
+							<User
+								key={user._id}
+								user={user}
+								refetch={refetch}
+								activeUser={activeUser}
+							/>
 						))}
 					</tbody>
 				</table>
