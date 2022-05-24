@@ -6,7 +6,7 @@ const Products = () => {
 	const [products, setProducts] = useState([])
 
 	useEffect(() => {
-		const url = 'products.json'
+		const url = 'http://localhost:5000/products'
 		axios.get(url).then((response) => {
 			setProducts(response.data)
 		})

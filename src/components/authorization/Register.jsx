@@ -7,6 +7,7 @@ import { useForm } from 'react-hook-form'
 import { Link } from 'react-router-dom'
 import auth from '../../firebase.init'
 import Loading from '../shared/Loading'
+import { toast } from 'react-toastify'
 
 const Register = () => {
 	const { register, handleSubmit } = useForm()
@@ -35,6 +36,7 @@ const Register = () => {
 	const onSubmit = (data) => {
 		console.log(data)
 		createUserWithEmailAndPassword(data.email, data.password)
+		toast.success('Sign up Successful!')
 	}
 
 	return (
