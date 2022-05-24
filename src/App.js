@@ -8,6 +8,7 @@ import Blog from './components/blog/Blog'
 import Home from './components/homepage/Home'
 import Products from './components/product/Products'
 import Navbar from './components/shared/Navbar'
+import Users from './components/users/Users'
 
 function App() {
 	return (
@@ -17,6 +18,7 @@ function App() {
 			<Routes>
 				<Route path='/' element={<Home />} />
 				<Route path='/products' element={<Products />} />
+				<Route path='/users' element={<Users />} />
 				<Route path='/blog' element={<Blog />} />
 				<Route path='/about' element={<About />} />
 				<Route path='/login' element={<Login />} />

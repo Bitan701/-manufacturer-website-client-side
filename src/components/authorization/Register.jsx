@@ -4,10 +4,11 @@ import {
 } from 'react-firebase-hooks/auth'
 import React from 'react'
 import { useForm } from 'react-hook-form'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import auth from '../../firebase.init'
 import Loading from '../shared/Loading'
 import { toast } from 'react-toastify'
+import useToken from '../custom/useToken'
 
 const Register = () => {
 	const { register, handleSubmit } = useForm()
@@ -15,12 +16,18 @@ const Register = () => {
 	const [createUserWithEmailAndPassword, user, loading, error] =
 		useCreateUserWithEmailAndPassword(auth)
 
-	const [signInWithGoogle, gloading, gerror] = useSignInWithGoogle(auth)
+	const [signInWithGoogle, guser, gloading, gerror] = useSignInWithGoogle(auth)
+
+	const navigate = useNavigate()
+
+	const [token] = useToken(user || guser)
 
 	if (error || gerror) {
 		return (
 			<div>
-				<p>Error: {error.message}</p>
+				<p>
+					Error: {error && error.message} {gerror && gerror.message}
+				</p>
 			</div>
 		)
 	}
@@ -29,8 +36,8 @@ const Register = () => {
 		return <Loading />
 	}
 
-	if (user) {
-		console.log(user.user.email)
+	if (token) {
+		navigate('/products')
 	}
 
 	const onSubmit = (data) => {
