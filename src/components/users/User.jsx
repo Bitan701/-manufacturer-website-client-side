@@ -1,6 +1,6 @@
 import React, { useReducer } from 'react'
 
-const User = ({ user }) => {
+const User = ({ user, refetch }) => {
 	const makeAdmin = () => {
 		fetch(`http://localhost:5000/users/admin/${user.email}`, {
 			method: 'PUT',
@@ -8,6 +8,7 @@ const User = ({ user }) => {
 			.then((res) => res.json())
 			.then((data) => {
 				console.log(data)
+				refetch()
 			})
 	}
 

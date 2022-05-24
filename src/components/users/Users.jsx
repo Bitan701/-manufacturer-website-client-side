@@ -5,18 +5,27 @@ import Loading from '../shared/Loading'
 import User from './User'
 
 const Users = () => {
-	const [users, setUsers] = useState([])
+	// const [users, setUsers] = useState([])
 
-	useEffect(() => {
-		const url = 'http://localhost:5000/users'
-		axios.get(url).then((response) => {
-			setUsers(response.data)
-		})
-	}, [])
+	// useEffect(() => {
+	// 	const url = 'http://localhost:5000/users'
+	// 	axios.get(url).then((response) => {
+	// 		setUsers(response.data)
+	// 	})
+	// }, [])
 
-	// if (isLoading) {
-	// 	return <Loading></Loading>
-	// }
+	const {
+		data: users,
+		isLoading,
+		refetch,
+	} = useQuery('users', () =>
+		fetch('http://localhost:5000/users', {
+			method: 'GET',
+		}).then((res) => res.json())
+	)
+	if (isLoading) {
+		return <Loading></Loading>
+	}
 
 	return (
 		<div>
@@ -32,7 +41,7 @@ const Users = () => {
 					</thead>
 					<tbody>
 						{users.map((user) => (
-							<User key={user._id} user={user} />
+							<User key={user._id} user={user} refetch={refetch} />
 						))}
 					</tbody>
 				</table>
