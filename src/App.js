@@ -5,6 +5,9 @@ import About from './components/about/About'
 import Login from './components/authorization/Login'
 import Register from './components/authorization/Register'
 import Blog from './components/blog/Blog'
+import Dashboard from './components/dashboard/Dashboard'
+import Profile from './components/dashboard/Profile'
+import Reviews from './components/dashboard/Reviews'
 import Home from './components/homepage/Home'
 import Products from './components/product/Products'
 import Navbar from './components/shared/Navbar'
@@ -17,12 +20,16 @@ function App() {
 
 			<Routes>
 				<Route path='/' element={<Home />} />
-				<Route path='/products' element={<Products />} />
-				<Route path='/users' element={<Users />} />
-				<Route path='/blog' element={<Blog />} />
-				<Route path='/about' element={<About />} />
-				<Route path='/login' element={<Login />} />
-				<Route path='/register' element={<Register />} />
+				<Route path='products' element={<Products />} />
+				<Route path='dashboard' element={<Dashboard />}>
+					<Route index element={<Profile />} />
+					<Route path='reviews' element={<Reviews />} />
+				</Route>
+				<Route path='users' element={<Users />} />
+				<Route path='blog' element={<Blog />} />
+				<Route path='about' element={<About />} />
+				<Route path='login' element={<Login />} />
+				<Route path='register' element={<Register />} />
 			</Routes>
 
 			<ToastContainer />
