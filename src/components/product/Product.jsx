@@ -1,6 +1,6 @@
 import React from 'react'
 
-const product = ({ product, setProductModal }) => {
+const Product = ({ product, setProductModal }) => {
 	return (
 		<div>
 			<div className='card w-96 bg-base-100 shadow-xl'>
@@ -41,4 +41,4 @@ const product = ({ product, setProductModal }) => {
 	)
 }
 
-export default product
+export default Product
