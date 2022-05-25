@@ -32,6 +32,7 @@ const ProductModal = ({ productModal, refetch }) => {
 			.then((data) => {
 				console.log('success', data)
 				document.getElementById('modal').click()
+				toast.success('Order Successfull')
 				refetch()
 			})
 	}
@@ -66,7 +67,7 @@ const ProductModal = ({ productModal, refetch }) => {
 								/>
 							</label>
 						</div>
-						<input type='submit' />
+						<input className='btn btn-primary mt-4' type='submit' />
 					</form>
 				</div>
 			</div>

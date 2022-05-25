@@ -30,7 +30,7 @@ const Products = () => {
 	}
 
 	return (
-		<div>
+		<div className='flex justify-center items-center flex-col'>
 			<div className=''>
 				{products.map((product) => (
 					<Product

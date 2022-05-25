@@ -2,7 +2,7 @@ import React from 'react'
 
 const Product = ({ product, setProductModal }) => {
 	return (
-		<div>
+		<div className='my-8'>
 			<div className='card w-96 bg-base-100 shadow-xl'>
 				<figure>
 					<img src={product.image} alt={product.name} />
@@ -25,14 +25,13 @@ const Product = ({ product, setProductModal }) => {
 						<p>Minimum Order: {product.minimumPurchaseQuantity}</p>
 					</div>
 					<div className='card-actions justify-end'>
-						<button className='btn btn-primary'>Buy Now</button>
 						<label
 							htmlFor='my-modal-3'
 							onClick={() => setProductModal(product)}
 							id='modal'
-							className='btn modal-button'
+							className='btn modal-button btn-primary'
 						>
-							open modal
+							Buy Now
 						</label>
 					</div>
 				</div>
