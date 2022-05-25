@@ -1,6 +1,6 @@
 import React from 'react'
 
-const product = ({ product }) => {
+const product = ({ product, setProductModal }) => {
 	return (
 		<div>
 			<div className='card w-96 bg-base-100 shadow-xl'>
@@ -20,12 +20,19 @@ const product = ({ product }) => {
 					</div>
 					<hr />
 					<div>
-						<p>Price: {product.price}</p>
+						<p>Price: ${product.price}</p>
 						<p>Product Available: {product.availableQuantity}</p>
 						<p>Minimum Order: {product.minimumPurchaseQuantity}</p>
 					</div>
 					<div className='card-actions justify-end'>
 						<button className='btn btn-primary'>Buy Now</button>
+						<label
+							htmlFor='my-modal-3'
+							onClick={() => setProductModal(product)}
+							className='btn modal-button'
+						>
+							open modal
+						</label>
 					</div>
 				</div>
 			</div>
