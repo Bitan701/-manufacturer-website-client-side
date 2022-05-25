@@ -35,6 +35,9 @@ const Navbar = () => {
 								<CustomLink to='/products'>Products</CustomLink>
 							</li>
 							<li>
+								<CustomLink to='/dashboard'>Dashboard</CustomLink>
+							</li>
+							<li>
 								<CustomLink to='/blog'>Blog</CustomLink>
 							</li>
 							<li>
@@ -51,7 +54,9 @@ const Navbar = () => {
 						<li>
 							<CustomLink to='/products'>Products</CustomLink>
 						</li>
-
+						<li>
+							<CustomLink to='/dashboard'>Dashboard</CustomLink>
+						</li>
 						<li>
 							<CustomLink to='/blog'>Blog</CustomLink>
 						</li>
