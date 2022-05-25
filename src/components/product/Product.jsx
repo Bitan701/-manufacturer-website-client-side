@@ -29,6 +29,7 @@ const product = ({ product, setProductModal }) => {
 						<label
 							htmlFor='my-modal-3'
 							onClick={() => setProductModal(product)}
+							id='modal'
 							className='btn modal-button'
 						>
 							open modal

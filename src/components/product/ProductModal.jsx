@@ -1,7 +1,7 @@
 import { useForm } from 'react-hook-form'
 import { toast } from 'react-toastify'
 
-const ProductModal = ({ productModal }) => {
+const ProductModal = ({ productModal, refetch }) => {
 	const { register, handleSubmit } = useForm()
 
 	const onSubmit = (data) => {
@@ -31,6 +31,8 @@ const ProductModal = ({ productModal }) => {
 			.then((res) => res.json())
 			.then((data) => {
 				console.log('success', data)
+				document.getElementById('modal').click()
+				refetch()
 			})
 	}
 

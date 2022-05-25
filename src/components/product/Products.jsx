@@ -1,18 +1,33 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import { useQuery } from 'react-query'
+import Loading from '../shared/Loading'
 import Product from './Product'
 import ProductModal from './ProductModal'
 
 const Products = () => {
-	const [products, setProducts] = useState([])
+	// const [products, setProducts] = useState([])
 	const [productModal, setProductModal] = useState([])
 
-	useEffect(() => {
-		const url = 'http://localhost:5000/products'
-		axios.get(url).then((response) => {
-			setProducts(response.data)
-		})
-	}, [])
+	// useEffect(() => {
+	// 	const url = 'http://localhost:5000/products'
+	// 	axios.get(url).then((response) => {
+	// 		setProducts(response.data)
+	// 	})
+	// }, [])
+
+	const {
+		data: products,
+		isLoading,
+		refetch,
+	} = useQuery('users', () =>
+		fetch('http://localhost:5000/products', {
+			method: 'GET',
+		}).then((res) => res.json())
+	)
+	if (isLoading) {
+		return <Loading></Loading>
+	}
 
 	return (
 		<div>
@@ -26,7 +41,7 @@ const Products = () => {
 				))}
 			</div>
 
-			<ProductModal productModal={productModal} />
+			<ProductModal productModal={productModal} refetch={refetch} />
 		</div>
 	)
 }
