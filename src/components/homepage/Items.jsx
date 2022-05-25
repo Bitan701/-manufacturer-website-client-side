@@ -15,7 +15,7 @@ const Items = () => {
 	}
 
 	return (
-		<div>
+		<div className='flex justify-center flex-col items-center gap-8'>
 			{products.slice(0, 3).map((product) => (
 				<Product key={product._id} product={product} />
 			))}
