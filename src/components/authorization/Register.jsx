@@ -1,6 +1,7 @@
 import {
 	useCreateUserWithEmailAndPassword,
 	useSignInWithGoogle,
+	useUpdateProfile,
 } from 'react-firebase-hooks/auth'
 import React from 'react'
 import { useForm } from 'react-hook-form'
@@ -16,13 +17,15 @@ const Register = () => {
 	const [createUserWithEmailAndPassword, user, loading, error] =
 		useCreateUserWithEmailAndPassword(auth)
 
+	const [updateProfile, updating, updateError] = useUpdateProfile(auth)
+
 	const [signInWithGoogle, guser, gloading, gerror] = useSignInWithGoogle(auth)
 
 	const navigate = useNavigate()
 
 	const [token] = useToken(user || guser)
 
-	if (error || gerror) {
+	if (error || gerror || updateError) {
 		return (
 			<div>
 				<p>
@@ -32,7 +35,7 @@ const Register = () => {
 		)
 	}
 
-	if (loading || gloading) {
+	if (loading || gloading || updating) {
 		return <Loading />
 	}
 
@@ -40,9 +43,13 @@ const Register = () => {
 		navigate('/products')
 	}
 
-	const onSubmit = (data) => {
+	const onSubmit = async (data) => {
 		console.log(data)
-		createUserWithEmailAndPassword(data.email, data.password)
+		await createUserWithEmailAndPassword(data.email, data.password)
+
+		const displayName = data.name
+		await updateProfile({ displayName })
+
 		toast.success('Sign up Successful!')
 	}
 
@@ -54,6 +61,15 @@ const Register = () => {
 			</button>
 			<form onSubmit={handleSubmit(onSubmit)}>
 				<div className='form-control gap-3'>
+					<label className='input-group'>
+						<span className='w-32'>Name</span>
+						<input
+							{...register('name', { required: true })}
+							type='text'
+							placeholder='John Doe'
+							className='input input-bordered'
+						/>
+					</label>
 					<label className='input-group'>
 						<span className='w-32'>Email</span>
 						<input
