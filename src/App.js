@@ -15,6 +15,7 @@ import Home from './components/homepage/Home'
 import Products from './components/product/Products'
 import Footer from './components/shared/Footer'
 import Navbar from './components/shared/Navbar'
+import NotFound from './components/shared/NotFound'
 import Users from './components/users/Users'
 
 function App() {
@@ -43,6 +44,7 @@ function App() {
 				<Route path='about' element={<About />} />
 				<Route path='login' element={<Login />} />
 				<Route path='register' element={<Register />} />
+				<Route path='*' element={<NotFound />} />
 			</Routes>
 
 			<Footer />

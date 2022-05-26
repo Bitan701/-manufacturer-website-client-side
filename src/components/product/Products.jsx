@@ -30,8 +30,8 @@ const Products = () => {
 	}
 
 	return (
-		<div className='flex justify-center items-center flex-col'>
-			<div className=''>
+		<div className=''>
+			<div className='flex justify-center items-center flex-col xl:flex-row xl:flex-wrap xl:gap-6'>
 				{products.map((product) => (
 					<Product
 						key={product._id}
