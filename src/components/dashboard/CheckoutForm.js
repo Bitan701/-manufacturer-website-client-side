@@ -14,7 +14,7 @@ const CheckoutForm = ({ reviewModal }) => {
 	const { email, _id } = reviewModal
 
 	useEffect(() => {
-		fetch('http://localhost:5000/create-payment-intent', {
+		fetch('https://rocky-garden-01336.herokuapp.com/create-payment-intent', {
 			method: 'POST',
 			headers: {
 				'content-type': 'application/json',
@@ -66,7 +66,7 @@ const CheckoutForm = ({ reviewModal }) => {
 				transactionId: paymentIntent.id,
 				isPaid: 'paid',
 			}
-			fetch(`http://localhost:5000/orders/${_id}`, {
+			fetch(`https://rocky-garden-01336.herokuapp.com/orders/${_id}`, {
 				method: 'PUT',
 				headers: {
 					'content-type': 'application/json',

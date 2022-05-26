@@ -16,7 +16,7 @@ const MyOrders = () => {
 	const [reviewModal, setReviewModal] = useState([])
 
 	// useEffect(() => {
-	// 	fetch(`http://localhost:5000/orders/${user.email}`)
+	// 	fetch(`https://rocky-garden-01336.herokuapp.com/orders/${user.email}`)
 	// 		.then((res) => res.json())
 	// 		.then((data) => {
 	// 			setData(data)
@@ -24,8 +24,8 @@ const MyOrders = () => {
 	// }, [])
 
 	const { data, isLoading, refetch } = useQuery('orders', () =>
-		fetch(`http://localhost:5000/orders/${user.email}`).then((res) =>
-			res.json()
+		fetch(`https://rocky-garden-01336.herokuapp.com/orders/${user.email}`).then(
+			(res) => res.json()
 		)
 	)
 

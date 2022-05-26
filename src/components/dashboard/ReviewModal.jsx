@@ -9,7 +9,7 @@ const ReviewModal = ({ userData, reviewModal, refetch }) => {
 	}
 
 	const order = (data) => {
-		fetch(`http://localhost:5000/orders/${userData._id}`, {
+		fetch(`https://rocky-garden-01336.herokuapp.com/orders/${userData._id}`, {
 			method: 'PUT',
 			headers: {
 				'content-type': 'application/json',

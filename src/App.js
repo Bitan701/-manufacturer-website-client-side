@@ -5,6 +5,7 @@ import About from './components/about/About'
 import Login from './components/authorization/Login'
 import Register from './components/authorization/Register'
 import Blog from './components/blog/Blog'
+import RequireAuth from './components/custom/RequireAuth'
 import Dashboard from './components/dashboard/Dashboard'
 import MyOrders from './components/dashboard/MyOrders'
 import Payment from './components/dashboard/Payment'
@@ -23,7 +24,14 @@ function App() {
 
 			<Routes>
 				<Route path='/' element={<Home />} />
-				<Route path='products' element={<Products />} />
+				<Route
+					path='products'
+					element={
+						<RequireAuth>
+							<Products />
+						</RequireAuth>
+					}
+				/>
 				<Route path='dashboard' element={<Dashboard />}>
 					<Route index element={<Profile />} />
 					<Route path='reviews' element={<Reviews />} />

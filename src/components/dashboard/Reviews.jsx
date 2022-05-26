@@ -9,7 +9,7 @@ const Reviews = () => {
 	const [data, setData] = useState([])
 
 	useEffect(() => {
-		fetch(`http://localhost:5000/orders/${user.email}`)
+		fetch(`https://rocky-garden-01336.herokuapp.com/orders/${user.email}`)
 			.then((res) => res.json())
 			.then((data) => {
 				setData(data)
