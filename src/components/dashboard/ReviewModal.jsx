@@ -2,11 +2,9 @@ import { useForm } from 'react-hook-form'
 import { toast } from 'react-toastify'
 
 const ReviewModal = ({ userData, reviewModal, refetch }) => {
-	console.log(reviewModal)
 	const { register, handleSubmit } = useForm()
 
 	const submitReview = (data) => {
-		console.log(JSON.parse(JSON.stringify(data)))
 		order(data)
 	}
 

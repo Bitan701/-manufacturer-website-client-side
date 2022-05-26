@@ -40,7 +40,8 @@ const MyOrders = () => {
 							<th>Name</th>
 							<th>Order</th>
 							<th>Order Amount</th>
-							<th>Payment($)</th>
+							<th>Due($)</th>
+							<th>Paid($)</th>
 							<th>Review</th>
 						</tr>
 					</thead>

@@ -7,6 +7,7 @@ const MyOrder = ({ datum, user, setReviewModal }) => {
 			<td>{datum.product}</td>
 			<td>{datum.orderAmount}</td>
 			<td>{datum?.payment}</td>
+			<td>{datum?.isPaid}</td>
 
 			<td>
 				{datum.review ? (
