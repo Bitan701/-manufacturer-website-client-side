@@ -1,6 +1,9 @@
-const Review = ({ datum, user }) => {
+import React from 'react'
+
+const AllReviews = ({ datum }) => {
 	return (
 		<tr>
+			<td>{datum.email}</td>
 			<td>{datum.product}</td>
 			<td>{datum?.rating}</td>
 			<td>{datum?.review}</td>
@@ -8,4 +11,4 @@ const Review = ({ datum, user }) => {
 	)
 }
 
-export default Review
+export default AllReviews

@@ -13,6 +13,7 @@ import Profile from './components/dashboard/Profile'
 import Reviews from './components/dashboard/Reviews'
 import Home from './components/homepage/Home'
 import Products from './components/product/Products'
+import Footer from './components/shared/Footer'
 import Navbar from './components/shared/Navbar'
 import Users from './components/users/Users'
 
@@ -36,6 +37,8 @@ function App() {
 				<Route path='login' element={<Login />} />
 				<Route path='register' element={<Register />} />
 			</Routes>
+
+			<Footer />
 
 			<ToastContainer />
 		</div>

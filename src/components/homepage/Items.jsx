@@ -2,6 +2,7 @@ import React from 'react'
 import { useQuery } from 'react-query'
 import Product from '../product/Product'
 import Loading from '../shared/Loading'
+import ItemLink from './ItemLink'
 
 const Items = () => {
 	const { data: products, isLoading } = useQuery('users', () =>
@@ -17,7 +18,7 @@ const Items = () => {
 	return (
 		<div className='flex justify-center flex-col items-center gap-8'>
 			{products.slice(0, 3).map((product) => (
-				<Product key={product._id} product={product} />
+				<ItemLink key={product._id} product={product} />
 			))}
 		</div>
 	)

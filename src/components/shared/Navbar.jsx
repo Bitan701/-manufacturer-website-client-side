@@ -34,9 +34,11 @@ const Navbar = () => {
 							<li>
 								<CustomLink to='/products'>Products</CustomLink>
 							</li>
-							<li>
-								<CustomLink to='/dashboard'>Dashboard</CustomLink>
-							</li>
+							{user && (
+								<li>
+									<CustomLink to='/dashboard'>Dashboard</CustomLink>{' '}
+								</li>
+							)}
 							<li>
 								<CustomLink to='/blog'>Blog</CustomLink>
 							</li>
@@ -54,9 +56,13 @@ const Navbar = () => {
 						<li>
 							<CustomLink to='/products'>Products</CustomLink>
 						</li>
-						<li>
-							<CustomLink to='/dashboard'>Dashboard</CustomLink>
-						</li>
+
+						{user && (
+							<li>
+								<CustomLink to='/dashboard'>Dashboard</CustomLink>{' '}
+							</li>
+						)}
+
 						<li>
 							<CustomLink to='/blog'>Blog</CustomLink>
 						</li>
@@ -67,7 +73,12 @@ const Navbar = () => {
 				</div>
 				<div className='navbar-end'>
 					{user ? (
-						<button onClick={() => signOut(auth)}>true</button>
+						<button
+							className='btn btn-primary btn-sm'
+							onClick={() => signOut(auth)}
+						>
+							Log Out
+						</button>
 					) : (
 						<CustomLink to='/login'>Login</CustomLink>
 					)}
