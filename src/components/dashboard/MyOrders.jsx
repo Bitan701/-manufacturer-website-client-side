@@ -63,11 +63,11 @@ const MyOrders = () => {
 				userData={reviewModal}
 				refetch={refetch}
 			/>
-			<Payment
+			{/* <Payment
 				reviewModal={reviewModal}
 				userData={reviewModal}
 				refetch={refetch}
-			/>
+			/> */}
 		</div>
 	)
 }

@@ -9,12 +9,14 @@ const Reviews = () => {
 	const [data, setData] = useState([])
 
 	useEffect(() => {
-		fetch(`http://localhost:5000/orders/${user.email}`)
-			.then((res) => res.json())
-			.then((data) => {
-				setData(data)
-			})
-	}, [])
+		if (user) {
+			fetch(`http://localhost:5000/orders/${user.email}`)
+				.then((res) => res.json())
+				.then((data) => {
+					setData(data)
+				})
+		}
+	}, [user])
 
 	if (loading) {
 		return <Loading />

@@ -29,7 +29,7 @@ const MyOrder = ({ datum, user, setReviewModal }) => {
 			</td>
 
 			<td>
-				{datum.review ? (
+				{datum.rating ? (
 					datum.rating
 				) : (
 					<label
