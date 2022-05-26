@@ -27,7 +27,6 @@ function App() {
 					<Route index element={<Profile />} />
 					<Route path='reviews' element={<Reviews />} />
 					<Route path='myorders' element={<MyOrders />} />
-					<Route path='addreview' element={<AddReview />} />
 				</Route>
 				<Route path='users' element={<Users />} />
 				<Route path='blog' element={<Blog />} />

@@ -3,10 +3,13 @@ import { useAuthState } from 'react-firebase-hooks/auth'
 import auth from '../../firebase.init'
 import Loading from '../shared/Loading'
 import MyOrder from './MyOrder'
+import ReviewModal from './ReviewModal'
 
 const MyOrders = () => {
 	const [user, loading] = useAuthState(auth)
 	const [data, setData] = useState([])
+
+	const [reviewModal, setReviewModal] = useState([])
 
 	useEffect(() => {
 		fetch(`http://localhost:5000/orders/${user.email}`)
@@ -31,15 +34,22 @@ const MyOrders = () => {
 							<th>Order</th>
 							<th>Order Amount</th>
 							<th>Payment($)</th>
+							<th>Review</th>
 						</tr>
 					</thead>
 					<tbody>
 						{data.map((datum) => (
-							<MyOrder key={datum._id} datum={datum} user={user} />
+							<MyOrder
+								key={datum._id}
+								datum={datum}
+								user={user}
+								setReviewModal={setReviewModal}
+							/>
 						))}
 					</tbody>
 				</table>
 			</div>
+			<ReviewModal reviewModal={reviewModal} userData={reviewModal} />
 		</div>
 	)
 }
