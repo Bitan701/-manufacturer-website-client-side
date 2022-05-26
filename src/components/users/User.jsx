@@ -1,16 +1,13 @@
 const User = ({ user, refetch, activeUser }) => {
 	// activeUser is the user logged in. First fetch determines if the activeUser is an admin. If true then activeUser can make other users admin as well
 	const makeAdmin = () => {
-		fetch(`https://rocky-garden-01336.herokuapp.com/users/${activeUser}`)
+		fetch(`http://localhost:5000/users/${activeUser}`)
 			.then((res) => res.json())
 			.then((data) => {
 				if (data[0].role) {
-					fetch(
-						`https://rocky-garden-01336.herokuapp.com/users/admin/${user.email}`,
-						{
-							method: 'PUT',
-						}
-					)
+					fetch(`http://localhost:5000/users/admin/${user.email}`, {
+						method: 'PUT',
+					})
 						.then((res) => res.json())
 						.then((data) => {
 							refetch()
@@ -20,7 +17,7 @@ const User = ({ user, refetch, activeUser }) => {
 				}
 			})
 
-		// fetch(`https://rocky-garden-01336.herokuapp.com/users/admin/${user.email}`, {
+		// fetch(`http://localhost:5000/users/admin/${user.email}`, {
 		// 	method: 'PUT',
 		// })
 		// 	.then((res) => res.json())

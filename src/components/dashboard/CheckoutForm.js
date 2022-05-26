@@ -12,15 +12,15 @@ const CheckoutForm = ({ reviewModal }) => {
 
 	const price = reviewModal.payment
 	const { email, _id } = reviewModal
-	console.log(email, _id)
+	console.log(price, email, _id)
 
 	useEffect(() => {
-		fetch('https://rocky-garden-01336.herokuapp.com/create-payment-intent', {
+		fetch('http://localhost:5000/create-payment-intent', {
 			method: 'POST',
 			headers: {
 				'content-type': 'application/json',
 			},
-			body: JSON.stringify({ price }),
+			body: JSON.stringify(price),
 		})
 			.then((res) => res.json())
 			.then((data) => {
@@ -67,7 +67,7 @@ const CheckoutForm = ({ reviewModal }) => {
 				transactionId: paymentIntent.id,
 				isPaid: 'paid',
 			}
-			fetch(`https://rocky-garden-01336.herokuapp.com/orders/${_id}`, {
+			fetch(`http://localhost:5000/orders/${_id}`, {
 				method: 'PUT',
 				headers: {
 					'content-type': 'application/json',

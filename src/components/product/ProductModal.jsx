@@ -35,7 +35,7 @@ const ProductModal = ({ productModal, refetch }) => {
 	}
 
 	const handleOrderDetails = (data) => {
-		fetch(`https://rocky-garden-01336.herokuapp.com/orders`, {
+		fetch(`http://localhost:5000/orders`, {
 			method: 'POST',
 			headers: {
 				'content-type': 'application/json',
@@ -49,16 +49,13 @@ const ProductModal = ({ productModal, refetch }) => {
 	}
 
 	const handleOrderSubmit = (data) => {
-		fetch(
-			`https://rocky-garden-01336.herokuapp.com/products/${productModal._id}`,
-			{
-				method: 'PUT',
-				headers: {
-					'content-type': 'application/json',
-				},
-				body: JSON.stringify(data),
-			}
-		)
+		fetch(`http://localhost:5000/products/${productModal._id}`, {
+			method: 'PUT',
+			headers: {
+				'content-type': 'application/json',
+			},
+			body: JSON.stringify(data),
+		})
 			.then((res) => res.json())
 			.then((data) => {
 				console.log('success', data)

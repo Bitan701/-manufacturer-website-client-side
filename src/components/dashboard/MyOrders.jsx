@@ -6,8 +6,6 @@ import MyOrder from './MyOrder'
 import ReviewModal from './ReviewModal'
 import { useQuery } from 'react-query'
 import Payment from './Payment'
-import { Elements } from '@stripe/react-stripe-js'
-import CheckoutForm from './CheckoutForm'
 
 const MyOrders = () => {
 	const [user, loading] = useAuthState(auth)
@@ -16,7 +14,7 @@ const MyOrders = () => {
 	const [reviewModal, setReviewModal] = useState([])
 
 	// useEffect(() => {
-	// 	fetch(`https://rocky-garden-01336.herokuapp.com/orders/${user.email}`)
+	// 	fetch(`http://localhost:5000/orders/${user.email}`)
 	// 		.then((res) => res.json())
 	// 		.then((data) => {
 	// 			setData(data)
@@ -24,8 +22,8 @@ const MyOrders = () => {
 	// }, [])
 
 	const { data, isLoading, refetch } = useQuery('orders', () =>
-		fetch(`https://rocky-garden-01336.herokuapp.com/orders/${user.email}`).then(
-			(res) => res.json()
+		fetch(`http://localhost:5000/orders/${user.email}`).then((res) =>
+			res.json()
 		)
 	)
 

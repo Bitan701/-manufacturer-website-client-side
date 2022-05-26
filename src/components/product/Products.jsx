@@ -10,7 +10,7 @@ const Products = () => {
 	const [productModal, setProductModal] = useState([])
 
 	// useEffect(() => {
-	// 	const url = 'https://rocky-garden-01336.herokuapp.com/products'
+	// 	const url = 'http://localhost:5000/products'
 	// 	axios.get(url).then((response) => {
 	// 		setProducts(response.data)
 	// 	})
@@ -21,7 +21,7 @@ const Products = () => {
 		isLoading,
 		refetch,
 	} = useQuery('users', () =>
-		fetch('https://rocky-garden-01336.herokuapp.com/products', {
+		fetch('http://localhost:5000/products', {
 			method: 'GET',
 		}).then((res) => res.json())
 	)

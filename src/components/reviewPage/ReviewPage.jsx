@@ -6,7 +6,7 @@ const ReviewPage = () => {
 	const [data, setData] = useState([])
 
 	useEffect(() => {
-		fetch(`https://rocky-garden-01336.herokuapp.com/orders`)
+		fetch(`http://localhost:5000/orders`)
 			.then((res) => res.json())
 			.then((data) => {
 				setData(data)
