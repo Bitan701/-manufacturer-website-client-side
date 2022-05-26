@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const MyOrder = ({ datum, user, setReviewModal }) => {
 	return (
@@ -7,7 +8,25 @@ const MyOrder = ({ datum, user, setReviewModal }) => {
 			<td>{datum.product}</td>
 			<td>{datum.orderAmount}</td>
 			<td>{datum?.payment}</td>
-			<td>{datum?.isPaid}</td>
+			<td>
+				{datum?.isPaid === 'unpaid' ? (
+					<>
+						<p>
+							unpaid
+							<label
+								onClick={() => setReviewModal(datum)}
+								htmlFor='pay-now'
+								className='btn modal-button btn-sm'
+								id='reviewModal2'
+							>
+								Pay Now
+							</label>
+						</p>
+					</>
+				) : (
+					<p>paid</p>
+				)}
+			</td>
 
 			<td>
 				{datum.review ? (

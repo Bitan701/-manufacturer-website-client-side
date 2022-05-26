@@ -5,6 +5,9 @@ import Loading from '../shared/Loading'
 import MyOrder from './MyOrder'
 import ReviewModal from './ReviewModal'
 import { useQuery } from 'react-query'
+import Payment from './Payment'
+import { Elements } from '@stripe/react-stripe-js'
+import CheckoutForm from './CheckoutForm'
 
 const MyOrders = () => {
 	const [user, loading] = useAuthState(auth)
@@ -58,6 +61,11 @@ const MyOrders = () => {
 				</table>
 			</div>
 			<ReviewModal
+				reviewModal={reviewModal}
+				userData={reviewModal}
+				refetch={refetch}
+			/>
+			<Payment
 				reviewModal={reviewModal}
 				userData={reviewModal}
 				refetch={refetch}
