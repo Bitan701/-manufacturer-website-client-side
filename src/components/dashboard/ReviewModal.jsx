@@ -1,6 +1,7 @@
 import { useForm } from 'react-hook-form'
+import { toast } from 'react-toastify'
 
-const ReviewModal = ({ userData, reviewModal }) => {
+const ReviewModal = ({ userData, reviewModal, refetch }) => {
 	console.log(reviewModal)
 	const { register, handleSubmit } = useForm()
 
@@ -19,6 +20,9 @@ const ReviewModal = ({ userData, reviewModal }) => {
 		})
 			.then((res) => res.json())
 			.then((data) => {
+				refetch()
+				toast.success('review added')
+				document.getElementById('reviewModal').click()
 				console.log('success', data)
 			})
 	}

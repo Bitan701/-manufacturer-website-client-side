@@ -4,22 +4,29 @@ import auth from '../../firebase.init'
 import Loading from '../shared/Loading'
 import MyOrder from './MyOrder'
 import ReviewModal from './ReviewModal'
+import { useQuery } from 'react-query'
 
 const MyOrders = () => {
 	const [user, loading] = useAuthState(auth)
-	const [data, setData] = useState([])
+	// const [data, setData] = useState([])
 
 	const [reviewModal, setReviewModal] = useState([])
 
-	useEffect(() => {
-		fetch(`http://localhost:5000/orders/${user.email}`)
-			.then((res) => res.json())
-			.then((data) => {
-				setData(data)
-			})
-	}, [])
+	// useEffect(() => {
+	// 	fetch(`http://localhost:5000/orders/${user.email}`)
+	// 		.then((res) => res.json())
+	// 		.then((data) => {
+	// 			setData(data)
+	// 		})
+	// }, [])
 
-	if (loading) {
+	const { data, isLoading, refetch } = useQuery('orders', () =>
+		fetch(`http://localhost:5000/orders/${user.email}`).then((res) =>
+			res.json()
+		)
+	)
+
+	if (loading || isLoading) {
 		return <Loading />
 	}
 
@@ -49,7 +56,11 @@ const MyOrders = () => {
 					</tbody>
 				</table>
 			</div>
-			<ReviewModal reviewModal={reviewModal} userData={reviewModal} />
+			<ReviewModal
+				reviewModal={reviewModal}
+				userData={reviewModal}
+				refetch={refetch}
+			/>
 		</div>
 	)
 }

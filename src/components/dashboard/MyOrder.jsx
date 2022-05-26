@@ -16,6 +16,7 @@ const MyOrder = ({ datum, user, setReviewModal }) => {
 						onClick={() => setReviewModal(datum)}
 						htmlFor='my-modal-3'
 						className='btn modal-button btn-sm'
+						id='reviewModal'
 					>
 						Review
 					</label>
