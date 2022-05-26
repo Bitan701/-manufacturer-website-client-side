@@ -1,8 +1,12 @@
+import { useAuthState } from 'react-firebase-hooks/auth'
 import { useForm } from 'react-hook-form'
 import { toast } from 'react-toastify'
+import auth from '../../firebase.init'
 
 const ProductModal = ({ productModal, refetch }) => {
 	const { register, handleSubmit } = useForm()
+
+	const [user, loading, error] = useAuthState(auth)
 
 	const onSubmit = (data) => {
 		if (data.amount < productModal.minimumPurchaseQuantity) {
@@ -17,7 +21,28 @@ const ProductModal = ({ productModal, refetch }) => {
 			}
 
 			handleOrderSubmit(afterOrderAmount)
+
+			const orderDetails = {
+				email: `${user.email}`,
+				orderAmount: `${data.amount}`,
+				productId: `${productModal._id}`,
+			}
+			handleOrderDetails(orderDetails)
 		}
+	}
+
+	const handleOrderDetails = (data) => {
+		fetch(`http://localhost:5000/orders`, {
+			method: 'POST',
+			headers: {
+				'content-type': 'application/json',
+			},
+			body: JSON.stringify(data),
+		})
+			.then((res) => res.json())
+			.then((data) => {
+				console.log('success', data)
+			})
 	}
 
 	const handleOrderSubmit = (data) => {
