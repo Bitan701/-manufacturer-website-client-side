@@ -26,6 +26,8 @@ const ProductModal = ({ productModal, refetch }) => {
 				email: `${user.email}`,
 				orderAmount: `${data.amount}`,
 				productId: `${productModal._id}`,
+				product: `${productModal.name}`,
+				payment: `${data.amount * productModal.price}`,
 			}
 			handleOrderDetails(orderDetails)
 		}

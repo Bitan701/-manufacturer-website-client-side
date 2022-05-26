@@ -5,6 +5,7 @@ import About from './components/about/About'
 import Login from './components/authorization/Login'
 import Register from './components/authorization/Register'
 import Blog from './components/blog/Blog'
+import AddReview from './components/dashboard/AddReview'
 import Dashboard from './components/dashboard/Dashboard'
 import MyOrders from './components/dashboard/MyOrders'
 import Profile from './components/dashboard/Profile'
@@ -26,7 +27,7 @@ function App() {
 					<Route index element={<Profile />} />
 					<Route path='reviews' element={<Reviews />} />
 					<Route path='myorders' element={<MyOrders />} />
-					<Route path='addreview' element={<Reviews />} />
+					<Route path='addreview' element={<AddReview />} />
 				</Route>
 				<Route path='users' element={<Users />} />
 				<Route path='blog' element={<Blog />} />
