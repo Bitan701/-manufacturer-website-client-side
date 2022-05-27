@@ -9,7 +9,10 @@ const ReviewPage = () => {
 		fetch(`http://localhost:5000/orders`)
 			.then((res) => res.json())
 			.then((data) => {
-				setData(data)
+				// console.log(data)
+				const filteredData = data.filter((datum) => datum.rating)
+				setData(filteredData)
+				// console.log(filteredData)
 			})
 	}, [])
 
