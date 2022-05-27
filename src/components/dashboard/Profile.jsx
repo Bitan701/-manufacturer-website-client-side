@@ -57,7 +57,10 @@ const Profile = () => {
 					<h2 className='card-title'>Profile</h2>
 					<p>Name: {user?.displayName}</p>
 					<p>Email: {user?.email}</p>
-					<p>Phone Number: {user?.phoneNumber}</p>
+					<p>Phone Number: {logged[0]?.phone}</p>
+					<p>Role: {logged[0]?.role}</p>
+					<p>Education: {logged[0]?.education}</p>
+					<p>Location: {logged[0]?.location}</p>
 				</div>
 
 				<form onSubmit={handleSubmit(onSubmit)}>
