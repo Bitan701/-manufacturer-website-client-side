@@ -7,7 +7,6 @@ const MyOrder = ({ datum, user, setReviewModal }) => {
 			<td>{datum.product}</td>
 			<td>{datum.orderAmount}</td>
 			<td>{datum?.payment}</td>
-
 			<td>
 				{datum.rating ? (
 					datum.rating
@@ -19,6 +18,21 @@ const MyOrder = ({ datum, user, setReviewModal }) => {
 						id='reviewModal'
 					>
 						Review
+					</label>
+				)}
+			</td>
+
+			<td>
+				{datum.isPaid === 'paid' ? (
+					'paid'
+				) : (
+					<label
+						onClick={() => setReviewModal(datum)}
+						htmlFor='delete-modal'
+						className='btn modal-button btn-sm'
+						id='deleteModal'
+					>
+						Delete
 					</label>
 				)}
 			</td>

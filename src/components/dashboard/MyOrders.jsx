@@ -6,6 +6,7 @@ import MyOrder from './MyOrder'
 import ReviewModal from './ReviewModal'
 import { useQuery } from 'react-query'
 import Payment from './Payment'
+import DeleteModal from './DeleteModal'
 
 const MyOrders = () => {
 	const [user, loading] = useAuthState(auth)
@@ -42,6 +43,7 @@ const MyOrders = () => {
 							<th>Order Amount</th>
 							<th>Due($)</th>
 							<th>Review</th>
+							<th>Delete</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -57,6 +59,11 @@ const MyOrders = () => {
 				</table>
 			</div>
 			<ReviewModal
+				reviewModal={reviewModal}
+				userData={reviewModal}
+				refetch={refetch}
+			/>
+			<DeleteModal
 				reviewModal={reviewModal}
 				userData={reviewModal}
 				refetch={refetch}

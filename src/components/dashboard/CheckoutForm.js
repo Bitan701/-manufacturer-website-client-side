@@ -10,25 +10,26 @@ const CheckoutForm = ({ reviewModal }) => {
 	const [transactionId, setTransactionId] = useState('')
 	const [clientSecret, setClientSecret] = useState('')
 
-	const price = reviewModal.payment
-	const { email, _id } = reviewModal
-	console.log(price, email, _id)
+	const { payment, email, _id } = reviewModal
+	// console.log(email, _id)
 
 	useEffect(() => {
-		fetch('http://localhost:5000/create-payment-intent', {
-			method: 'POST',
-			headers: {
-				'content-type': 'application/json',
-			},
-			body: JSON.stringify(price),
-		})
-			.then((res) => res.json())
-			.then((data) => {
-				if (data?.clientSecret) {
-					setClientSecret(data.clientSecret)
-				}
+		if (payment) {
+			fetch('http://localhost:5000/create-payment-intent', {
+				method: 'POST',
+				headers: {
+					'content-type': 'application/json',
+				},
+				body: JSON.stringify({ payment }),
 			})
-	}, [price])
+				.then((res) => res.json())
+				.then((data) => {
+					if (data?.clientSecret) {
+						setClientSecret(data.clientSecret)
+					}
+				})
+		}
+	}, [payment])
 
 	const handleSubmit = async (event) => {
 		event.preventDefault()
