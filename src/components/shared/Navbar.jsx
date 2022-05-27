@@ -43,7 +43,7 @@ const Navbar = () => {
 								<CustomLink to='/blog'>Blog</CustomLink>
 							</li>
 							<li>
-								<CustomLink to='/about'>About</CustomLink>
+								<CustomLink to='/about'>Portfolio</CustomLink>
 							</li>
 						</ul>
 					</div>
@@ -67,7 +67,7 @@ const Navbar = () => {
 							<CustomLink to='/blog'>Blog</CustomLink>
 						</li>
 						<li>
-							<CustomLink to='/about'>About</CustomLink>
+							<CustomLink to='/about'>Portfolio</CustomLink>
 						</li>
 					</ul>
 				</div>
