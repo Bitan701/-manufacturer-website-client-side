@@ -8,6 +8,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom'
 import auth from '../../firebase.init'
 import Loading from '../shared/Loading'
 import { toast } from 'react-toastify'
+import useToken from '../custom/useToken'
 
 const Register = () => {
 	const { register, handleSubmit } = useForm()
@@ -22,6 +23,8 @@ const Register = () => {
 	const location = useLocation()
 	const from = location?.state?.from?.pathname || '/'
 
+	const [token] = useToken(user)
+
 	if (error || updateError) {
 		signInError = (
 			<p className='text-red-500'>
@@ -34,7 +37,7 @@ const Register = () => {
 		return <Loading />
 	}
 
-	if (user) {
+	if (token) {
 		navigate(from, { replace: true })
 	}
 
