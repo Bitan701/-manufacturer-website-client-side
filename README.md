@@ -1,6 +1,14 @@
-# minimal-react18
+# MSI Graphics Card Warehouse application
+### **It is a full MERN application**
 
-This is a minimal template for react@18.
-After react@18 came out regular react-create-app template started giving a warning about "render". This template fixes that and create a very minimal boilerplate for react project.
-To use this template add --template minimal-react18 while creating new app.
-`npx create-react-app my-app --template minimal-react18`
+### Live Link: [Click Here](https://msi-gpu.web.app/)
+### Server Side Code: [Click Here](https://github.com/programming-hero-web-course1/manufacturer-website-server-side-Bitan701)
+
+### Features of the site:
+
+* User can order a minimum amount of product after logging in. (Authentication is done with Firebase using react- firebase-hook)
+* User can see their profile after logging in and can update their profile (react-form is used to update data)
+* User can see their order history after logging in and rate their purchase. (user react-query to update data after review added)
+* Admin type users can make others admin and can see all the orders made by all users. 
+
+* Admin can change the status of an order
