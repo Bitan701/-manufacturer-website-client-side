@@ -16,16 +16,17 @@ const Register = () => {
 		useCreateUserWithEmailAndPassword(auth)
 
 	const [updateProfile, updating, updateError] = useUpdateProfile(auth)
+	let signInError
 
 	const navigate = useNavigate()
 	const location = useLocation()
 	const from = location?.state?.from?.pathname || '/'
 
 	if (error || updateError) {
-		return (
-			<div>
-				<p>Error: {error && error.message}</p>
-			</div>
+		signInError = (
+			<p className='text-red-500'>
+				<small>{error?.message || updateError?.message}</small>
+			</p>
 		)
 	}
 
@@ -82,6 +83,7 @@ const Register = () => {
 					<input className='btn btn-primary btn-sm' type='submit' />
 				</div>
 			</form>
+			{signInError}
 
 			<Link to='/login'>Login</Link>
 		</div>

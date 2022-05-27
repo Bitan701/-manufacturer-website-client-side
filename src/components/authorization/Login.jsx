@@ -20,12 +20,13 @@ const Login = () => {
 		useSignInWithEmailAndPassword(auth)
 
 	const [signInWithGoogle, guser, gloading, gerror] = useSignInWithGoogle(auth)
+	let signInError
 
 	if (error || gerror) {
-		return (
-			<div>
-				<p>Error: {error.message}</p>
-			</div>
+		signInError = (
+			<p className='text-red-500'>
+				<small>{error?.message || gerror?.message}</small>
+			</p>
 		)
 	}
 
@@ -71,6 +72,7 @@ const Login = () => {
 					<input className='btn btn-primary btn-sm' type='submit' />
 				</div>
 			</form>
+			{signInError}
 
 			<Link to='/register'>Register</Link>
 		</div>
