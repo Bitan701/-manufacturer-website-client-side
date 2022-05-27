@@ -7,6 +7,7 @@ const AllOrder = ({ datum }) => {
 			<td>{datum?.orderAmount}</td>
 			<td>{datum?.product}</td>
 			<td>{datum?.payment}</td>
+			<td>{datum?.isPaid === 'paid' ? 'Paid' : 'Unpaid'}</td>
 		</tr>
 	)
 }

@@ -22,6 +22,7 @@ const AllOrders = () => {
 							<th>Order Quanity</th>
 							<th>Product Name</th>
 							<th>Payment</th>
+							<th>Status</th>
 						</tr>
 					</thead>
 					<tbody>
