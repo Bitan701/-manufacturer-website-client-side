@@ -22,9 +22,9 @@ const Payment = ({ userData, reviewModal, refetch }) => {
 						Hello, {reviewModal?.email} <br />
 						Please pay: {reviewModal?.payment}
 					</h3>
-					{/* <Elements stripe={stripePromise}>
+					<Elements stripe={stripePromise}>
 						<CheckoutForm reviewModal={reviewModal} />
-					</Elements> */}
+					</Elements>
 				</div>
 			</div>
 		</div>

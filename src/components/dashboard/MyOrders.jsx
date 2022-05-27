@@ -38,11 +38,9 @@ const MyOrders = () => {
 				<table className='table w-full'>
 					<thead>
 						<tr>
-							<th>Name</th>
 							<th>Order</th>
 							<th>Order Amount</th>
 							<th>Due($)</th>
-							<th>Paid($)</th>
 							<th>Review</th>
 						</tr>
 					</thead>
@@ -63,11 +61,6 @@ const MyOrders = () => {
 				userData={reviewModal}
 				refetch={refetch}
 			/>
-			{/* <Payment
-				reviewModal={reviewModal}
-				userData={reviewModal}
-				refetch={refetch}
-			/> */}
 		</div>
 	)
 }
