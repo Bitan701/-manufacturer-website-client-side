@@ -41,12 +41,14 @@ const Dashboard = () => {
 					<li>
 						<Link to='/dashboard/reviews'>Reviews</Link>
 					</li>
-					{logged[0]?.role !== 'admin' && (
-						<>
-							<li>
-								<Link to='/dashboard/myorders'>My Orders</Link>
-							</li>
-						</>
+					{logged[0]?.role !== 'admin' ? (
+						<li>
+							<Link to='/dashboard/myorders'>My Orders</Link>
+						</li>
+					) : (
+						<li>
+							<Link to='/dashboard/addproduct'>Add a Product</Link>
+						</li>
 					)}
 				</ul>
 			</div>
