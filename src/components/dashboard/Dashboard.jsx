@@ -1,7 +1,23 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { useAuthState } from 'react-firebase-hooks/auth'
 import { Link, Outlet } from 'react-router-dom'
+import auth from '../../firebase.init'
 
 const Dashboard = () => {
+	const [user, loading, error] = useAuthState(auth)
+	const [logged, setLogged] = useState('')
+
+	useEffect(() => {
+		if (user) {
+			const { email } = user
+			fetch(`http://localhost:5000/users/${email}`)
+				.then((res) => res.json())
+				.then((data) => {
+					setLogged(data)
+				})
+		}
+	}, [user])
+
 	return (
 		<div className='drawer drawer-mobile'>
 			<input id='my-drawer-2' type='checkbox' className='drawer-toggle' />
@@ -22,12 +38,16 @@ const Dashboard = () => {
 					<li>
 						<Link to='/dashboard'>Profile</Link>
 					</li>
-					<li>
-						<Link to='/dashboard/reviews'>Reviews</Link>
-					</li>
-					<li>
-						<Link to='/dashboard/myorders'>My Orders</Link>
-					</li>
+					{logged[0]?.role !== 'admin' && (
+						<>
+							<li>
+								<Link to='/dashboard/reviews'>Reviews</Link>
+							</li>
+							<li>
+								<Link to='/dashboard/myorders'>My Orders</Link>
+							</li>
+						</>
+					)}
 				</ul>
 			</div>
 		</div>
