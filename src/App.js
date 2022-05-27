@@ -10,6 +10,7 @@ import AddProduct from './components/dashboard/AddProduct'
 import AllOrders from './components/dashboard/AllOrders'
 import Dashboard from './components/dashboard/Dashboard'
 import MyOrders from './components/dashboard/MyOrders'
+import MyPayment from './components/dashboard/MyPayment'
 import Payment from './components/dashboard/Payment'
 import Profile from './components/dashboard/Profile'
 import Reviews from './components/dashboard/Reviews'
@@ -40,6 +41,7 @@ function App() {
 					<Route path='addproduct' element={<AddProduct />} />
 					<Route path='reviews' element={<Reviews />} />
 					<Route path='myorders' element={<MyOrders />} />
+					<Route path='mypayment' element={<MyPayment />} />
 					<Route path='allorders' element={<AllOrders />} />
 					<Route path='myorders/:email' element={<Payment />} />
 					<Route path='users' element={<Users />} />
