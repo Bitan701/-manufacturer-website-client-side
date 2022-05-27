@@ -38,15 +38,13 @@ const Users = () => {
 	}
 
 	return (
-		<div>
+		<div className='mt-8'>
 			<div className='overflow-x-auto'>
 				<table className='table w-full'>
 					<thead>
 						<tr>
-							<th></th>
-							<th>Name</th>
-							<th>Admin</th>
-							<th>Remove</th>
+							<th>Email</th>
+							<th>Make Admin</th>
 						</tr>
 					</thead>
 					<tbody>

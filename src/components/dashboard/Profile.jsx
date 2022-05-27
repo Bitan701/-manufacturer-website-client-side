@@ -96,7 +96,7 @@ const Profile = () => {
 							/>
 						</label>
 
-						<input type='submit' />
+						<input className='btn btn-primary btn-sm' type='submit' />
 					</div>
 				</form>
 			</div>

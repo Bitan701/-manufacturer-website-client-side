@@ -68,7 +68,7 @@ const Login = () => {
 							className='input input-bordered'
 						/>
 					</label>
-					<input type='submit' />
+					<input className='btn btn-primary btn-sm' type='submit' />
 				</div>
 			</form>
 

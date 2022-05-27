@@ -29,7 +29,6 @@ const User = ({ user, refetch, activeUser }) => {
 
 	return (
 		<tr>
-			<th>1</th>
 			<td>{user.email}</td>
 			<td>
 				{user.role !== 'admin' ? (
@@ -39,9 +38,6 @@ const User = ({ user, refetch, activeUser }) => {
 				) : (
 					<p className='font-bold'>admin</p>
 				)}
-			</td>
-			<td>
-				<button className='btn btn-xs'>Remove User</button>
 			</td>
 		</tr>
 	)

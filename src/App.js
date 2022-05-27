@@ -7,6 +7,7 @@ import Register from './components/authorization/Register'
 import Blog from './components/blog/Blog'
 import RequireAuth from './components/custom/RequireAuth'
 import AddProduct from './components/dashboard/AddProduct'
+import AllOrders from './components/dashboard/AllOrders'
 import Dashboard from './components/dashboard/Dashboard'
 import MyOrders from './components/dashboard/MyOrders'
 import Payment from './components/dashboard/Payment'
@@ -39,9 +40,10 @@ function App() {
 					<Route path='addproduct' element={<AddProduct />} />
 					<Route path='reviews' element={<Reviews />} />
 					<Route path='myorders' element={<MyOrders />} />
+					<Route path='allorders' element={<AllOrders />} />
 					<Route path='myorders/:email' element={<Payment />} />
+					<Route path='users' element={<Users />} />
 				</Route>
-				<Route path='users' element={<Users />} />
 				<Route path='blog' element={<Blog />} />
 				<Route path='about' element={<About />} />
 				<Route path='login' element={<Login />} />

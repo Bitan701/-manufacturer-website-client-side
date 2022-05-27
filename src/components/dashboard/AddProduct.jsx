@@ -42,7 +42,10 @@ const AddProduct = () => {
 
 	return (
 		<div>
-			<h1>Add product route</h1>
+			<div className='text-center my-4'>
+				<h1 className='text-3xl'>Add a Product</h1>
+				<p className='text-xl'>Try providing all the details</p>
+			</div>
 			<form onSubmit={handleSubmit(submitProduct)}>
 				<div className='form-control gap-3'>
 					<label className='input-group'>
@@ -153,7 +156,7 @@ const AddProduct = () => {
 							className='input input-bordered'
 						/>
 					</label>
-					<input type='submit' />
+					<input className='btn btn-primary btn-sm' type='submit' />
 				</div>
 			</form>
 		</div>
