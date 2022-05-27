@@ -10,7 +10,7 @@ const Dashboard = () => {
 	useEffect(() => {
 		if (user) {
 			const { email } = user
-			fetch(`http://localhost:5000/users/${email}`)
+			fetch(`https://rocky-garden-01336.herokuapp.com/users/${email}`)
 				.then((res) => res.json())
 				.then((data) => {
 					setLogged(data)

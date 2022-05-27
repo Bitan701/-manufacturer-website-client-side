@@ -27,7 +27,7 @@ const AddProduct = () => {
 
 	const product = (data) => {
 		console.log(data)
-		fetch(`http://localhost:5000/products`, {
+		fetch(`https://rocky-garden-01336.herokuapp.com/products`, {
 			method: 'POST',
 			headers: {
 				'content-type': 'application/json',

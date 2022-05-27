@@ -5,7 +5,7 @@ import {
 } from 'react-firebase-hooks/auth'
 import React from 'react'
 import { useForm } from 'react-hook-form'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import auth from '../../firebase.init'
 import Loading from '../shared/Loading'
 import { toast } from 'react-toastify'
@@ -22,6 +22,8 @@ const Register = () => {
 	const [signInWithGoogle, guser, gloading, gerror] = useSignInWithGoogle(auth)
 
 	const navigate = useNavigate()
+	const location = useLocation()
+	const from = location?.state?.from?.pathname || '/'
 
 	const [token] = useToken(user || guser)
 
@@ -40,7 +42,7 @@ const Register = () => {
 	}
 
 	if (token) {
-		navigate('/products')
+		navigate(from, { replace: true })
 	}
 
 	const onSubmit = async (data) => {

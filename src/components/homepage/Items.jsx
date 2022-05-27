@@ -6,7 +6,7 @@ import ItemLink from './ItemLink'
 
 const Items = () => {
 	const { data: products, isLoading } = useQuery('users', () =>
-		fetch('http://localhost:5000/products', {
+		fetch('https://rocky-garden-01336.herokuapp.com/products', {
 			method: 'GET',
 		}).then((res) => res.json())
 	)

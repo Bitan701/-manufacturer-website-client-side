@@ -19,7 +19,7 @@ const Login = () => {
 	const [signInWithEmailAndPassword, user, loading, error] =
 		useSignInWithEmailAndPassword(auth)
 
-	const [signInWithGoogle, gloading, gerror] = useSignInWithGoogle(auth)
+	const [signInWithGoogle, guser, gloading, gerror] = useSignInWithGoogle(auth)
 
 	if (error || gerror) {
 		return (
@@ -33,7 +33,7 @@ const Login = () => {
 		return <Loading />
 	}
 
-	if (user) {
+	if (user || guser) {
 		navigate(from, { replace: true })
 	}
 

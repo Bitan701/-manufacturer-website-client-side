@@ -13,7 +13,7 @@ const Profile = () => {
 	useEffect(() => {
 		if (user) {
 			const { email } = user
-			fetch(`http://localhost:5000/users/${email}`)
+			fetch(`https://rocky-garden-01336.herokuapp.com/users/${email}`)
 				.then((res) => res.json())
 				.then((data) => {
 					setLogged(data)
@@ -31,13 +31,16 @@ const Profile = () => {
 	}
 
 	const order = (data) => {
-		fetch(`http://localhost:5000/users/${logged[0]?.email}`, {
-			method: 'PUT',
-			headers: {
-				'content-type': 'application/json',
-			},
-			body: JSON.stringify(data),
-		})
+		fetch(
+			`https://rocky-garden-01336.herokuapp.com/users/${logged[0]?.email}`,
+			{
+				method: 'PUT',
+				headers: {
+					'content-type': 'application/json',
+				},
+				body: JSON.stringify(data),
+			}
+		)
 			.then((res) => res.json())
 			.then((data) => {
 				console.log('success', data)

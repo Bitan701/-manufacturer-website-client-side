@@ -5,13 +5,16 @@ const DeleteModal = ({ userData, reviewModal, refetch }) => {
 	const { register, handleSubmit } = useForm()
 
 	const submitDelete = (data) => {
-		fetch(`http://localhost:5000/orders/${reviewModal._id}`, {
-			method: 'DELETE',
-			headers: {
-				'content-type': 'application/json',
-			},
-			body: JSON.stringify(data),
-		})
+		fetch(
+			`https://rocky-garden-01336.herokuapp.com/orders/${reviewModal._id}`,
+			{
+				method: 'DELETE',
+				headers: {
+					'content-type': 'application/json',
+				},
+				body: JSON.stringify(data),
+			}
+		)
 			.then((res) => res.json())
 			.then((data) => {
 				refetch()

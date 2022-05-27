@@ -10,7 +10,7 @@ const Users = () => {
 	// const [users, setUsers] = useState([])
 
 	// useEffect(() => {
-	// 	const url = 'http://localhost:5000/users'
+	// 	const url = 'https://rocky-garden-01336.herokuapp.com/users'
 	// 	axios.get(url).then((response) => {
 	// 		setUsers(response.data)
 	// 	})
@@ -29,7 +29,7 @@ const Users = () => {
 		isLoading,
 		refetch,
 	} = useQuery('users', () =>
-		fetch('http://localhost:5000/users', {
+		fetch('https://rocky-garden-01336.herokuapp.com/users', {
 			method: 'GET',
 		}).then((res) => res.json())
 	)
