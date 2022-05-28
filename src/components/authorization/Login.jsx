@@ -37,10 +37,6 @@ const Login = () => {
 		return <Loading />
 	}
 
-	if (user) {
-		navigate(from, { replace: true })
-	}
-
 	if (token) {
 		navigate(from, { replace: true })
 	}
