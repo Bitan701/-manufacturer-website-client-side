@@ -41,6 +41,10 @@ const Login = () => {
 		navigate(from, { replace: true })
 	}
 
+	if (user) {
+		navigate(from, { replace: true })
+	}
+
 	const onSubmit = async (data) => {
 		signInWithEmailAndPassword(data.email, data.password)
 		// await navigate(from, { replace: true })
